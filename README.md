@@ -52,5 +52,6 @@ const isAdmin = (req, res, next) => {
   }
   next();
 };
+'''
 
 ### Level 1 Authentication : Directly storing username and password into the database
