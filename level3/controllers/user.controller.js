@@ -32,7 +32,6 @@ async function registerUser(req,res){
             err
         });
     }
-
 }
 
 async function loginUser(req,res){
