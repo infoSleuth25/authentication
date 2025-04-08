@@ -96,3 +96,32 @@ We use one-way **hashing algorithms** (like `bcrypt`) which convert the password
 - Irreversible and secure.
 - Even if the database is leaked, it’s extremely difficult to reverse engineer passwords.
 - Widely accepted and trusted method.
+
+---
+
+## ✅ Level 4: JWT (JSON Web Token) Authentication
+
+**Description:**  
+This is a modern, stateless method of authentication.  
+When a user logs in, a **JWT token** is generated and sent back to the client.  
+This token contains a **signed payload** (usually user ID or other identifying info) and is used to **verify the user on protected routes**.
+
+**How it works:**
+- Server signs a token using a **secret key** and sends it to the client.
+- Client stores the token (usually in **cookies** or **localStorage**).
+- For every subsequent request, client sends the token in the **Authorization header**.
+- Server verifies the token using the secret and extracts user info from the payload.
+
+**Benefits:**
+- ✅ Stateless — no need to store sessions on server.
+- ✅ Scalable — great for APIs and microservices.
+- ✅ Easy to share between frontend and mobile apps.
+
+**Drawbacks:**
+- ❌ If a token is stolen, attacker can use it until it expires (unless using blacklisting or short expiry).
+- ❌ Token invalidation (logout) is tricky unless extra handling is done.
+
+**Best Practices:**
+- Always use **HTTPS** to prevent token leaks.
+- Set short expiry and use **refresh tokens** if needed.
+- Store tokens **safely** — avoid localStorage for sensitive apps, use **HttpOnly cookies**.
