@@ -18,7 +18,7 @@ async function registerUser(req,res){
         username : username,
         password : password
     })
-    return res.status(401).json({
+    return res.status(201).json({
         msg : "User is successfully registered",
         user : user
     })
